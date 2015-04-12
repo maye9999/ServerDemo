@@ -71,6 +71,47 @@ http://123.57.50.143/apis/set?flow=123&balance=456
 
 2.(备用)Http Basic Authentication，每一个HTTP GET请求的头中加入auth模块， 其中含有Base64编码的用户名和密码， 具体实现可以google下Basic Authentication的实现
 
+查询所有接受(发出)到的流量
+```
+http://123.57.50.143/apis/getentriesfrom
+http://123.57.50.143/apis/getentriesto
+```
+返回样例如下
+
+```
+{
+code: 0,
+data: [
+{
+user to: "john",
+user from: "maye",
+date: "2015-04-12",
+flow: 1024,
+time: "04:00:16.970689"
+},
+{
+user to: "tom",
+user from: "maye",
+date: "2015-04-12",
+flow: 11111,
+time: "04:10:10.702649"
+},
+{
+user to: "tony",
+user from: "maye",
+date: "2015-04-12",
+flow: 90,
+time: "12:13:06.332694"
+}
+]
+}
+```
+
+添加新的流量记录
+```
+http://123.57.50.143/apis/addentry?user_from=USERNAME&user_to=USERNAME&flow=NUM
+```
+
 
 另：APIs所有域名和端口号待定。如有API更新会及时通知
 
